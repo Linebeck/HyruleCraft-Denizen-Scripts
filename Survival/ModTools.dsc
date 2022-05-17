@@ -3,7 +3,7 @@ HC_seizure_stick:
   debug: false
   events:
     on player right clicks entity:
-      - if <player.item_in_hand.display.if_null[null]> == "Seizure Stick" and <context.entity.is_op> != true:
+      - if <player.item_in_hand.display.if_null[null]> == "Seizure Stick" and <player.is_op>:
             - rotate yaw:100000 <context.entity>
 
 HC_dumb_dumb_stick:
@@ -11,7 +11,7 @@ HC_dumb_dumb_stick:
   debug: false
   events:
     on player right clicks entity:
-      - if <player.item_in_hand.display.if_null[null]> == "Dumb Dumb Stick":
+      - if <player.item_in_hand.display.if_null[null]> == "Dumb Dumb Stick" and <player.is_op>:
         - if <context.entity.has_ai>:
             - adjust <context.entity> has_ai:false
         - if <context.entity.has_ai> != true:
@@ -33,7 +33,7 @@ HC_rename:
     name: rename
     tab completions:
         1: Custom Name No Spaces
-    permission: HC.public
+    permission: HC.admin.tools
     description: "Renames the held item"
     script:
         - inventory adjust slot:hand display:<reset><context.args.get[1]>
