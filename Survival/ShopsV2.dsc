@@ -40,14 +40,14 @@ HC_shop_V2_menu_script:
             - if <context.item.script.name.if_null[null]> == HC_shop_virtual_cancel_item:
                 - if HC_shop_virtual_remove_item|HC_shop_virtual_add_item contains <context.item.script.name.if_null[null]>::
                     - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.replace_text[+].replace_text[-]>]>
-                    - narrate "<blue>Buying:<reset> <player.flag[buyingamount]>"
+                    - actionbar "<blue>Buying:<reset> <player.flag[buyingamount]>"
                 - else:
                     - if <player.flag[buyingamount]> >= <context.item.display.replace_text[+].replace_text[-].add[1]>:
                         - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.replace_text[+].replace_text[-]>]>
-                        - narrate "<blue>Buying:<reset> <player.flag[buyingamount]>"
+                        - actionbar "<blue>Buying:<reset> <player.flag[buyingamount]>"
                     - else:
                         - flag <player> buyingamount:1
-                        - narrate "<blue>Buying:<reset> <player.flag[buyingamount]>"
+                        - actionbar "<blue>Buying:<reset> <player.flag[buyingamount]>"
 
 
 #virtual items for menus
