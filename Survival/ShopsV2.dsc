@@ -37,9 +37,15 @@ HC_shop_V2_menu_script:
                 - inventory open d:<player.flag[lastshopmenu]>
     #Detect amount
             - if <context.item.display.contains_text[+]>:
+              - ratelimit <player> 1t
               - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.strip_color.replace_text[+]>]>
               - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
-
+              - stop
+            - if <context.item.display.contains_text[-]>:
+              - ratelimit <player> 1t
+              - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.strip_color.replace_text[-]>]>
+              - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
+              - stop
 #virtual items for menus
 HC_shop_virtual_cancel_item:
   type: item
