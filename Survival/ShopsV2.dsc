@@ -38,7 +38,7 @@ HC_shop_V2_menu_script:
                 - inventory open d:<player.flag[lastshopmenu]>
     #Detect amount
             - if <context.item.script.name> == hc_shop_virtual_math_*:
-              - narrate test
+              - actionbar test
               - if <context.item.display.contains_text[+]>:
                 - ratelimit <player> 1t
                 - if <player.flag[buyingamount]> >= 0:
