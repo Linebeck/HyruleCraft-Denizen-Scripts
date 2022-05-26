@@ -5,7 +5,7 @@ HC_shop_confirm_V2_menu:
     gui: true
     slots:
         - [] [] [] [] [<[PlayerMoneyItem]>] [] [] [] []
-        - [] [HC_shop_virtual_remove_item[display=-32]] [HC_shop_virtual_remove_item[display=-16]] [HC_shop_virtual_remove_item[display=-1]] [<[BuyItem]>] [HC_shop_virtual_add_item[display=+1]] [HC_shop_virtual_add_item[display=+16]] [HC_shop_virtual_add_item[display=+32]] []
+        - [] [HC_shop_virtual_math_remove_item[display=-32]] [HC_shop_virtual_math_remove_item[display=-16]] [HC_shop_virtual_math_remove_item[display=-1]] [<[BuyItem]>] [HC_shop_virtual_math_add_item[display=+1]] [HC_shop_virtual_math_add_item[display=+16]] [HC_shop_virtual_math_add_item[display=+32]] []
         - [] [] [] [] [HC_shop_virtual_cancel_item] [] [] [] []
 
 HC_shop_V2_menu:
@@ -37,18 +37,19 @@ HC_shop_V2_menu_script:
             - if <context.item.script.name.if_null[null]> == HC_shop_virtual_cancel_item:
                 - inventory open d:<player.flag[lastshopmenu]>
     #Detect amount
-            - if <context.item.script.name> == HC_shop_virtual_add_item:
-              - ratelimit <player> 1t
-              - if <player.flag[buyingamount]> >= 0:
-                - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.strip_color.replace_text[+]>]>
-              - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
-              - stop
-            - if <context.item.script.name> == HC_shop_virtual_remove_item:
-              - ratelimit <player> 1t
-              - if <player.flag[buyingamount]> >= 64:
-                - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.strip_color.replace_text[-]>]>
-              - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
-              - stop
+            - if <context.item.script.name> == HC_shop_virtual_math_*:
+              - if <context.item.display.contains_text[+]>:
+                - ratelimit <player> 1t
+                - if <player.flag[buyingamount]> >= 0:
+                  - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.strip_color.replace_text[+]>]>
+                - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
+                - stop
+              - else:
+                - ratelimit <player> 1t
+                - if <player.flag[buyingamount]> >= 64:
+                  - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.strip_color.replace_text[-]>]>
+                - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
+                - stop
 #virtual items for menus
 HC_shop_virtual_cancel_item:
   type: item
@@ -59,7 +60,7 @@ HC_shop_virtual_cancel_item:
     uuid: <util.random_uuid>
   display name: <reset><red>Cancel
 
-HC_shop_virtual_add_item:
+HC_shop_virtual_math_add_item:
   type: item
   debug: false
   material: blue_stained_glass_pane
@@ -73,7 +74,7 @@ HC_shop_virtual_add_item:
   enchantments:
     - luck: 4
 
-HC_shop_virtual_remove_item:
+HC_shop_virtual_math_remove_item:
   type: item
   debug: false
   material: red_stained_glass_pane
