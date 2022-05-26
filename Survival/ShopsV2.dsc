@@ -1,7 +1,7 @@
 HC_confirm_shop_V2_menu:
     type: inventory
     inventory: chest
-    title: <red><bold>Confirm Purchase <green>V2
+    title: <red><bold>Confirm Purchase
     gui: true
     slots:
         - [] [] [] [] [<[PlayerMoneyItem]>] [] [] [] []
