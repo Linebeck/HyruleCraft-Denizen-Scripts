@@ -30,6 +30,7 @@ HC_shop_V2_menu_script:
                 - define PlayerMoneyItem "player_head[skull_skin=<player.uuid>;display=<player.name>;lore=<reset><gold>Money: <reset><white>$<player.money.as_money.format_number.if_null[0]>]"
                 - flag <player> lastshopmenu:<player.open_inventory.script.name>
                 - flag <player> buying:<reset><[BuyItem]>
+                - flag <player> buyingamount:1
                 - inventory open d:HC_shop_confirm_V2_menu
         on player clicks HC_shop_virtual_* in HC_shop_confirm_V2_menu:
     #Detect cancel
@@ -41,7 +42,7 @@ HC_shop_V2_menu_script:
               - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.strip_color.replace_text[+]>]>
               - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
               - stop
-            - if <context.item.display.contains_text[-]>:
+            - else <context.item.display.contains_text[-]>:
               - ratelimit <player> 1t
               - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.strip_color.replace_text[-]>]>
               - actionbar <blue>Buying:<reset><player.flag[buyingamount]>
