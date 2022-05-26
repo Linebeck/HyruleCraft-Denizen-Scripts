@@ -1,7 +1,7 @@
 HC_confirm_shop_V2_menu:
     type: inventory
     inventory: chest
-    title: <red><bold>Confirm Purchase
+    title: <red><bold>Confirm Purchase <green>V2
     gui: true
     slots:
         - [] [] [] [] [<[PlayerMoneyItem]>] [] [] [] []
@@ -14,7 +14,7 @@ HC_shop_V2_menu:
     title: <reset><bold><green>Test Shop Menu
     gui: true
     slots:
-        - [diamond[display=<green>Buy Me!;lore=<green>Left Click Buy:<red> $1]] [] [] [] [] [] [] [] []
+        - [diamond[lore=<green>Left Click Buy:<red> $1;flag_map=[item=diamond]]] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
 
@@ -54,12 +54,17 @@ HC_shop_V2_menu_script:
               - if <player.flag[buyingamount]> <= <player.inventory.can_fit[<context.item>].count>:
                 - if <player.money> >= <[price]>:
                   - money take <[price]>
-                  - give <context.item> quantity:<player.flag[buyingamount]>
-                  - narrate "<&b>You bought <reset><player.flag[buyingamount]> <&b>of <reset><context.item.display>!"
+                  - if <context.item.flag[item].if_null[self]> == self:
+                    - define item <context.item.replace_text[<context.item.lore.get[1]>]>
+                  - else:
+                    - define item <context.item.flag[item]>
+                  - give <[item]> quantity:<player.flag[buyingamount]>
+                  - narrate "<&b>You bought <reset><player.flag[buyingamount]> <&b>of <reset><context.item.flag[item].as_item.display.if_null[<context.item.flag[item].as_item.material.name>]>!"
                 - else:
                   - narrate "<red>You have insufficient funds!"
               - else:
                 - narrate "<red>You have insufficient inventory space!"
+
 #virtual items for menus
 HC_shop_virtual_cancel_item:
   type: item
