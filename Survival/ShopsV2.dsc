@@ -34,8 +34,7 @@ HC_shop_V2_menu_script:
         on player clicks HC_shop_virtual_* in HC_shop_confirm_V2_menu:
     #Detect cancel
             - if <context.item.script.name.if_null[null]> == HC_shop_virtual_cancel_item:
-                - inventory close
-                - stop
+                - inventory open d:<player.flag[lastshopmenu]>
     #Detect amount added
             - if <context.item.script.name.if_null[null]> == HC_shop_virtual_cancel_item:
                 - if HC_shop_virtual_remove_item|HC_shop_virtual_add_item contains <context.item.script.name.if_null[null]>::
