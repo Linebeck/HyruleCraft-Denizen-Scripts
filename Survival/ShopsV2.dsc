@@ -37,7 +37,7 @@ HC_shop_V2_menu_script:
             - if <context.item.script.name.if_null[null]> == HC_shop_virtual_cancel_item:
                 - inventory open d:<player.flag[lastshopmenu]>
     #Detect amount
-            - if <context.item.script.name> == HC_shop_virtual_math_*:
+            - if <context.item.script.name> == hc_shop_virtual_math_*:
               - if <context.item.display.contains_text[+]>:
                 - ratelimit <player> 1t
                 - if <player.flag[buyingamount]> >= 0:
