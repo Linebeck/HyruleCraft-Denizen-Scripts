@@ -27,7 +27,7 @@ HC_shop_V2_menu_script:
     #Create virtual item for menu
             - if <context.item.lore.contains_text[buy:]>:
                 - define BuyItem <context.item>
-                - define PlayerMoneyItem "player_head[skull_skin=<player.uuid>;display=<player.name>;lore=<reset><gold>Money: <reset><white>$<player.money.as_money.format_number>]"
+                - define PlayerMoneyItem "player_head[skull_skin=<player.uuid>;display=<player.name>;lore=<reset><gold>Money: <reset><white>$<player.money.as_money.format_number.if_null[0]>]"
                 - flag <player> lastshopmenu:<player.open_inventory.script.name>
                 - flag <player> buying:<reset><[BuyItem]>
                 - inventory open d:HC_shop_confirm_V2_menu
