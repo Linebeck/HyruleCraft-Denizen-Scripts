@@ -71,6 +71,14 @@ HC_shop_V2_menu_script:
               - else:
                 - narrate "<red>You have insufficient inventory space!"
 
+HC_shopkeeper_script:
+  type: world
+  debug: false
+  events:
+    on player right clicks entity:
+      - if beedle|shopkeeperbeedle contains <context.entity.name>:
+        - inventory open d:<context.entity.name>_shop_menu
+
 #virtual items for menus
 HC_shop_virtual_cancel_item:
   type: item
