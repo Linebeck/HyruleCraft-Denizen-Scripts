@@ -49,6 +49,7 @@ HC_shop_V2_menu_script:
               - stop
     #Money calc
         on player clicks item in HC_confirm_shop_V2_menu:
+            - define playermoneyformated <player.money.as_money.format_number.if_null[0]>
             - define price <context.item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>]>
             - if <context.item.lore.contains_text[buy:]>:
               - if <player.flag[buyingamount]> <= <player.inventory.can_fit[<context.item>].count>:
@@ -63,7 +64,7 @@ HC_shop_V2_menu_script:
                 - else:
                   - narrate "<red>You have insufficient funds!"
               - else:
-                - narrate "<red>You have insufficient inventory space!"
+                - narrate "<red>You have insufficient inventory space!(<green>You need <[price].sub[<[playermoneyformated]>]>)"
 
 #virtual items for menus
 HC_shop_virtual_cancel_item:
