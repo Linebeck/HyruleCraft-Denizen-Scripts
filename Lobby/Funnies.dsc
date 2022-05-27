@@ -1,4 +1,4 @@
-zc_funnies:
+hc_funnies:
     type: world
     debug: false
     events:

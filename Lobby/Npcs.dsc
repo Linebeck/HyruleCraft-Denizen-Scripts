@@ -1,4 +1,4 @@
-zc_npc_sounds:
+hc_npc_sounds:
     type: world
     debug: false
     events:
