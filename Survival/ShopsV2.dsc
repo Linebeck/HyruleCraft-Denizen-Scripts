@@ -62,7 +62,7 @@ HC_shop_V2_menu_script:
                   - give <[item]> quantity:<player.flag[buyingamount]>
                   - narrate "<&b>You bought <reset><player.flag[buyingamount]> <&b>of <reset><context.item.flag[item].as_item.display.if_null[<context.item.flag[item].as_item.material.name>]>!"
                 - else:
-                  - narrate "<red>You have insufficient funds! <green>Needed<reset>: $<[price].sub[<[playermoneyformated]>]> <green>More"
+                  - narrate "<red>You have insufficient funds! <green>Needed<reset>: $<[price].sub[<[playermoneyformated]>].as_money.format_number> <green>More"
               - else:
                 - narrate "<red>You have insufficient inventory space!"
 
