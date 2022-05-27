@@ -35,8 +35,11 @@ HC_midi_op_command:
 
 #Download MIDI
         - if <context.args.get[1]> == Download:
-            - ~webget <context.args.get[2]> savefile:plugins/Denizen/midi/<context.args.get[3].replace_text[.mid]>.mid save:file
-            - narrate "<green>Download Complete"
-            - flag <player> DownloadedMidis:|:<context.args.get[3]>
-            - if <entry[file].failed>:
-                - narrate "<red>Download failed"
+            - if <context.args.get[2].if_null[null]> != null and <context.args.get[3].if_null[null]> != null:
+                - ~webget <context.args.get[2]> savefile:plugins/Denizen/midi/<context.args.get[3].replace_text[.mid]>.mid save:file
+                - narrate "<green>Download Complete"
+                - flag <player> DownloadedMidis:|:<context.args.get[3]>
+                - if <entry[file].failed>:
+                    - narrate "<red>Download failed"
+            - else:
+                - narrate targets:<player> "<red>You must specify all values!"
