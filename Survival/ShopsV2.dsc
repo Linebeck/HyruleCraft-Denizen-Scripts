@@ -14,9 +14,20 @@ HC_shop_V2_menu:
     title: <reset><bold><green>Test Shop Menu
     gui: true
     slots:
+        - [Stick[lore=<&b>Left Click Buy<reset>: $2;flag_map=[item=stick]]] [] [] [] [] [] [] [] []
+        - [] [] [] [] [] [] [] [] []
+        - [] [] [] [] [] [] [] [] []
+
+beedle_shop_menu:
+    type: inventory
+    inventory: chest
+    title: <reset><bold><green>Beedle's Shop
+    gui: true
+    slots:
         - [diamond[lore=<green>Left Click Buy:<red> $243;flag_map=[item=diamond]]] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
+
 
 HC_shop_V2_menu_script:
     type: world
