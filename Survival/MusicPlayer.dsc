@@ -29,7 +29,7 @@ HC_midi_op_command:
 
 #Delete midi
         - if <context.args.get[1]> == Delete:
-            - adjust server delete_file:plugins/Denizen/midi/<context.args.get[2]>.mid
+            - adjust server delete_file:midi/<context.args.get[2]>.mid
             - narrate "<red>File deleted"
             - stop
 
