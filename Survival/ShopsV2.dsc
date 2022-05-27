@@ -59,7 +59,7 @@ HC_shop_V2_menu_script:
               - ratelimit <player> 5t
               - if <player.flag[buyingamount]> <= <player.inventory.can_fit[<context.item>].count>:
                 - if <player.money> >= <[price]>:
-                  - money take <[price]>
+                  - money take quantity:<[price]>
                   - if <context.item.flag[item].if_null[self]> == self:
                     - define item <context.item.replace_text[<context.item.lore.get[1]>]>
                   - else:
