@@ -28,7 +28,7 @@ HC_shop_V2_menu_script:
                 - define BuyItem <context.item>
                 - define PlayerMoneyItem "player_head[skull_skin=<player.uuid>;display=<player.name>;lore=<reset><gold>Money: <reset><white>$<player.money.as_money.format_number.if_null[0]>]"
                 - flag <player> lastshopmenu:<player.open_inventory.script.name>
-                - flag <player> buying:<reset><[BuyItem]>
+                - flag <player> buying:<[BuyItem]>
                 - flag <player> buyingamount:1
                 - inventory open d:HC_confirm_shop_V2_menu
         on player clicks HC_shop_virtual_* in HC_confirm_shop_V2_menu:
@@ -39,7 +39,7 @@ HC_shop_V2_menu_script:
             - if <context.item.display.contains_text[+]>:
               - ratelimit <player> 1t
               - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.strip_color.replace_text[+]>]>
-              - define price <player.flag[buying].as_item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>]>
+              - define price <context.item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>].if_null[0]>
               - actionbar "<blue>Buying<reset>: <player.flag[buyingamount]> <blue>Price<reset>: $<[price]>"
               - stop
             - if <context.item.display.contains_text[-]>:
@@ -48,7 +48,7 @@ HC_shop_V2_menu_script:
                 - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.strip_color.replace_text[-]>]>
               - else:
                 - flag <player> buyingamount:1
-                - define price <player.flag[buying].as_item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>]>
+              - define price <context.item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>].if_null[0]>
               - actionbar "<blue>Buying<reset>: <player.flag[buyingamount]> <blue>Price<reset>: $<[price]>"
               - stop
     #Money calc
