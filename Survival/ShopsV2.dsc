@@ -18,7 +18,7 @@ HC_shop_V2_menu:
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
 
-beedle_shop_menu:
+HC_shop_beedle:
     type: inventory
     inventory: chest
     title: <reset><bold><green>Beedle's Shop
@@ -88,7 +88,7 @@ HC_shopkeeper_script:
   events:
     on player right clicks entity:
       - if beedle|shopkeeperbeedle contains <context.entity.name>:
-        - inventory open d:<context.entity.name>_shop_menu
+        - inventory open d:HC_shop_<context.entity.name>
 
 #virtual items for menus
 HC_shop_virtual_cancel_item:
