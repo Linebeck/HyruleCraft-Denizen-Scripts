@@ -45,6 +45,8 @@ HC_shop_V2_menu_script:
               - ratelimit <player> 1t
               - if <player.flag[buyingamount]> >= <context.item.display.strip_color.replace_text[-].add[1]>:
                 - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].sub[<context.item.display.strip_color.replace_text[-]>]>
+              - else:
+                - flag <player> buyingamount:1
               - actionbar "<blue>Buying<reset>: <player.flag[buyingamount]>"
               - stop
     #Money calc
