@@ -14,7 +14,7 @@ HC_shop_V2_menu:
     title: <reset><bold><green>Test Shop Menu
     gui: true
     slots:
-        - [Stick[lore=<&b>Left Click Buy<reset>: $2;flag_map=[item=stick]]] [] [] [] [] [] [] [] []
+        - [Stick[lore=<&b>Left Click Buy<white>: $2;flag_map=[item=stick]]] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
 
@@ -24,7 +24,7 @@ HC_shop_beedle:
     title: <reset><bold><green>Beedle's Shop
     gui: true
     slots:
-        - [Stick[lore=<&b>Left Click Buy<reset>: $2;flag_map=[item=stick]]] [] [] [] [] [] [] [] []
+        - [Stick[lore=<&b>Left Click Buy<white>: $2;flag_map=[item=stick]]] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
 
