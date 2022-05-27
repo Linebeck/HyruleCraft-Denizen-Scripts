@@ -24,7 +24,7 @@ HC_shop_beedle:
     title: <reset><bold><green>Beedle's Shop
     gui: true
     slots:
-        - [diamond[lore=<green>Left Click Buy:<red> $243;flag_map=[item=diamond]]] [] [] [] [] [] [] [] []
+        - [Stick[lore=<&b>Left Click Buy<reset>: $2;flag_map=[item=stick]]] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
 
