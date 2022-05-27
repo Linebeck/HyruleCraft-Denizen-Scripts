@@ -14,7 +14,7 @@ HC_shop_V2_menu:
     title: <reset><bold><green>Test Shop Menu
     gui: true
     slots:
-        - [diamond[lore=<green>Left Click Buy:<red> $1;flag_map=[item=diamond]]] [] [] [] [] [] [] [] []
+        - [diamond[lore=<green>Left Click Buy:<red> $243;flag_map=[item=diamond]]] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
         - [] [] [] [] [] [] [] [] []
 
