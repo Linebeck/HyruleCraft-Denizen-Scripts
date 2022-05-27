@@ -3,7 +3,7 @@ zc_funnies:
     debug: false
     events:
         on player right clicks player:
-            - if <context.entity.is_op>:
+            - if <context.entity.is_op> and <player.is_sneaking>:
                 - ratelimit <player> 30s
                 - random:
                     - playsound custom sound:hyrulecore.music.instruments.ocarina.oot.sarias_song <context.location> volume:1
