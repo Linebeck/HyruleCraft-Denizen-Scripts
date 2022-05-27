@@ -54,6 +54,7 @@ HC_shop_V2_menu_script:
             - define playermoneyformated <player.money.as_money.format_number.if_null[0]>
             - define price <context.item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>]>
             - if <context.item.lore.contains_text[buy:]>:
+              - ratelimit <player> 5t
               - if <player.flag[buyingamount]> <= <player.inventory.can_fit[<context.item>].count>:
                 - if <player.money> >= <[price]>:
                   - money take <[price]>
