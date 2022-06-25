@@ -29,5 +29,5 @@ HC_british:
                 - ~walk <[value]> <[value].anchor[preset]>
             - narrate <Green>Done!
         - if <context.args.get[1]> == Anchor:
-            - anchor add <player.location> id:preset
+            - anchor add <player.location.simple.center> id:preset
             - narrate <Green>Done!
