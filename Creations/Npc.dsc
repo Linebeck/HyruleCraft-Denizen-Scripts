@@ -27,10 +27,9 @@ HC_british:
         - if <context.args.get[1]> == Walk:
             - foreach <player.flag[SelectedNpcs]>:
                 - ~walk <[value]> <[value].anchor[preset]>
-                - teleport <[value]> <[value].anchor[preset].below[0.5]>
+                - teleport <[value]> <[value].anchor[preset]>
             - narrate <Green>Done!
         - if <context.args.get[1]> == Anchor:
             - define Location <player.location.center>
             - anchor add <[Location]> id:preset
             - narrate "<green>Anchor set to <white><[Location]>"
-            - narrate <Green>Done!
