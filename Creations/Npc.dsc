@@ -28,7 +28,11 @@ HC_british:
             - foreach <player.flag[SelectedNpcs]>:
                 - ~walk <[value]> <[value].anchor[preset]>
             - narrate <Green>Done!
+            - stop
         - if <context.args.get[1]> == Anchor:
             - define Location <player.location.center>
             - anchor add <[Location]> id:preset
             - narrate "<green>Anchor set to <white><[Location]>"
+            - stop
+        - else:
+            - stop
