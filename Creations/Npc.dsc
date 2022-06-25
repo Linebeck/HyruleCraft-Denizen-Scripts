@@ -22,5 +22,5 @@ HC_british:
     description: "Become British"
     script:
         - foreach <player.flag[SelectedNpcs]>:
-            - ~walk <[value].npc> <[value].anchor[preset]>
+            - ~walk <[value]> <[value].anchor[preset]>
         - narrate <Green>Done!
