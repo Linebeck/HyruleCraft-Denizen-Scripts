@@ -1,10 +1,10 @@
-HC_church_scene:
+HC_npc_selection_stick_script:
     type: world
     debug: false
     events:
         on player right clicks npc with:HC_npc_selection_stick:
             - ratelimit <player> 2t
-            - flag <player> SelectedNpcs:|:<context.entity>
+            - flag <player> SelectedNpcs:|:<context.npc>
             - narrate "<green>Npc selected!"
         on player right clicks block with:HC_npc_selection_stick:
             - ratelimit <player> 2t
