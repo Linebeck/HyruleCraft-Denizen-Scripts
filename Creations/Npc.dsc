@@ -18,9 +18,15 @@ HC_british:
     type: command
     usage: /british
     name: british
+    tab completions:
+        1: Walk|Anchor
     permission: HC.npc.tools
     description: "Become British"
     script:
-        - foreach <player.flag[SelectedNpcs]>:
-            - ~walk <[value]> <[value].anchor[preset]>
-        - narrate <Green>Done!
+        - if <context.args.get[1]> == Walk:
+            - foreach <player.flag[SelectedNpcs]>:
+                - ~walk <[value]> <[value].anchor[preset]>
+            - narrate <Green>Done!
+        - if <context.args.get[1]> == Anchor:
+            - anchor add <player.flag[SelectedNpcs].get[1]>: id:preset
+            - narrate <Green>Done!
