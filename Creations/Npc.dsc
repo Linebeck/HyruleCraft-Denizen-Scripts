@@ -14,7 +14,7 @@ HC_church_scene:
             - else:
                 - stop
 
-zc_britsh:
+HC_britsh:
     type: command
     usage: /britsh
     name: britsh
