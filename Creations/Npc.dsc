@@ -4,6 +4,7 @@ HC_npc_selection_stick_script:
     events:
         on player right clicks npc with:HC_npc_selection_stick:
             - ratelimit <player> 2t
+            - adjust <player> selected_npc:<context.entity>
             - flag <player> SelectedNpcs:|:<context.entity>
             - narrate "<green>Npc selected!"
         on player right clicks block with:HC_npc_selection_stick:
