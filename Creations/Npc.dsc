@@ -29,5 +29,5 @@ HC_british:
                 - ~walk <[value]> <[value].anchor[preset]>
             - narrate <Green>Done!
         - if <context.args.get[1]> == Anchor:
-            - anchor add <player.flag[SelectedNpcs].get[1]>: id:preset
+            - anchor add <player.flag[SelectedNpcs].get[1]> id:preset
             - narrate <Green>Done!
