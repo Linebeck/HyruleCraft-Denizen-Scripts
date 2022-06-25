@@ -14,10 +14,10 @@ HC_npc_selection_stick_script:
             - else:
                 - stop
 
-HC_britsh:
+HC_british:
     type: command
-    usage: /britsh
-    name: britsh
+    usage: /british
+    name: british
     permission: HC.npc.tools
     description: "Become British"
     script:
