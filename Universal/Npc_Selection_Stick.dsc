@@ -1,7 +1,7 @@
 HC_npc_selection_stick:
   type: item
   debug: false
-  material: stick
+  material: netherite_hoe
   data:
     discover: false
   flags:
