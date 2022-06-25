@@ -23,4 +23,4 @@ zc_britsh:
     script:
         - foreach <player.flag[SelectedNpcs]>:
             - ~walk <[value]> <[value].anchor[preset]>
-            - narrate <Green>Done!
+        - narrate <Green>Done!
