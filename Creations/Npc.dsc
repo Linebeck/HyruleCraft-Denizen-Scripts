@@ -4,7 +4,7 @@ HC_npc_selection_stick_script:
     events:
         on player right clicks npc with:HC_npc_selection_stick:
             - ratelimit <player> 2t
-            - flag <player> SelectedNpcs:|:<context.npc>
+            - flag <player> SelectedNpcs:|:<context.entity>
             - narrate "<green>Npc selected!"
         on player right clicks block with:HC_npc_selection_stick:
             - ratelimit <player> 2t
@@ -22,5 +22,5 @@ HC_britsh:
     description: "Become British"
     script:
         - foreach <player.flag[SelectedNpcs]>:
-            - ~walk <[value]> <[value].anchor[preset]>
+            - ~walk <[value].npc> <[value].anchor[preset]>
         - narrate <Green>Done!
