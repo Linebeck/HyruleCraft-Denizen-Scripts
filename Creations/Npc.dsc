@@ -11,3 +11,5 @@ HC_church_scene:
             - if <player.is_sneaking>:
                 - flag <player> SelectedNpcs:|:<context.entity>
                 - narrate "<Green>Selected Npcs Cleared"
+            - else:
+                - stop
