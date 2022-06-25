@@ -1,4 +1,4 @@
-zc_npc_selection_stick:
+HC_npc_selection_stick:
   type: item
   debug: false
   material: stick
