@@ -18,8 +18,9 @@ HC_autosmelt_enchantment_script:
     type: world
     debug: false
     events:
-      on player breaks *_ore with:*_pickaxe:
-         - if <player.item_in_hand.enchantment_types.contains[autosmelt]>:
-             - determine passively cancelled
+      on *_ore drops raw_* from breaking:
+         - if <player.exists> and <player.item_in_hand.enchantment_types.contains_text[autosmelt]>:
+            - determine passively cancelled
+            - drop <context.drop_entities.get[1].item.material.name.replace_text[raw_]>_ingot <context.location> quantity:<context.drop_entities.get[1].item.quantity> speed:0.1,0
          - else:
             - stop
