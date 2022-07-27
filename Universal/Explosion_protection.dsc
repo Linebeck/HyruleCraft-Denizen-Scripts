@@ -2,7 +2,7 @@ HC_TNT_doesnt_explode:
     type: world
     debug: false
     events:
-        after tnt primes:
+        on tnt primes:
             - if <context.entity.world.name> == creative:
-                - kill <context.entity>
+                - determine passively cancelled
                 - narrate "<red>TNT is disabled in this world!!""
