@@ -4,5 +4,5 @@ HC_TNT_doesnt_explode:
     events:
         after tnt primes:
             - if <context.entity.world.name> == creative:
-                - remove <context.entity>
+                - kill <context.entity>
                 - narrate "<red>TNT is disabled in this world!!""
