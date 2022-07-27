@@ -5,4 +5,4 @@ HC_TNT_doesnt_explode:
         on tnt primes:
             - if <context.entity.world.name> == creative:
                 - determine passively cancelled
-                - narrate "<red>TNT is disabled in this world!!""
+                - narrate "<red>TNT is disabled in this world!"
