@@ -51,7 +51,7 @@ HC_shop_V2_menu_script:
               - ratelimit <player> 1t
               - flag <player> buyingamount:<player.flag[buyingamount].if_null[1].add[<context.item.display.strip_color.replace_text[+]>]>
               - define price <player.flag[buying].as_item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>].if_null[0]>
-              - actionbar "<blue>Buying<reset>: <player.flag[buyingamount]> <blue>Price<reset>: $<[price]>"
+              - inventory adjust d:<player.open_inventory> slot:14 quantity:<player.flag[buyingamount]>
               - stop
             - if <context.item.display.contains_text[-]>:
               - ratelimit <player> 1t
@@ -60,7 +60,7 @@ HC_shop_V2_menu_script:
               - else:
                 - flag <player> buyingamount:1
               - define price <player.flag[buying].as_item.lore.strip_color.after[$].replace_text[|].mul[<player.flag[buyingamount]>].if_null[0]>
-              - actionbar "<blue>Buying<reset>: <player.flag[buyingamount]> <blue>Price<reset>: $<[price]>"
+              - inventory adjust d:<player.open_inventory> slot:14 quantity:<player.flag[buyingamount]>
               - stop
     #Money calc
         on player clicks item in HC_confirm_shop_V2_menu:
