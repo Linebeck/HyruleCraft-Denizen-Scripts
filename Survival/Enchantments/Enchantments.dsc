@@ -5,7 +5,7 @@ HC_autosmelt_enchantment:
     slots:
        - mainhand
     rarity: rare
-    full_name: Autosmelt
+    full_name: Melting Point
     category: DIGGER
     min_level: 1
     max_level: 1
