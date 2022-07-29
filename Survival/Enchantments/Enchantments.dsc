@@ -22,7 +22,6 @@ HC_autosmelt_enchantment_script:
          - if <player.exists> and <player.item_in_hand.enchantment_types.contains_text[autosmelt]>:
             - determine passively cancelled
             - playeffect effect:smoke at:<context.location> quantity:4
-            - playsound sound:BLOCK_FIRE_EXTINGUISH <context.location> volume:0.1
             - drop <context.drop_entities.get[1].item.material.name.replace_text[raw_]>_ingot <context.location> quantity:<context.drop_entities.get[1].item.quantity> speed:0.1,0
          - else:
             - stop
